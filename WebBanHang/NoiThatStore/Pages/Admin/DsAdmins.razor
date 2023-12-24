@@ -1,0 +1,62 @@
+﻿@page "/admin/DsAdmins"
+@inherits OwningComponentBase<IStoreRepository>
+<table class="table table-sm table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>TEN_TK</th>
+			<th>PASS</th>
+			<td />
+		</tr>
+	</thead>
+	<tbody>
+		@if (AdminData?.Count() > 0)
+		{
+			@foreach (Admin p in AdminData)
+			{
+				<tr>
+					<td>@p.ADMINID</td>
+					<td>@p.TEN_TK</td>
+					<td>@p.PASS</td>
+					<td>
+						<NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(p.ADMINID ?? 0)">
+							Details
+						</NavLink>
+						<NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(p.ADMINID ?? 0)">
+							Edit
+						</NavLink>
+						<button class="btn btn-danger btn-sm" @onclick="@(e => DeleteAdmin(p))">
+							Delete
+						</button>
+					</td>
+				</tr>
+			}
+		}
+		else
+		{
+			<tr>
+				<td colspan="5" class="text-center">No Admins</td>
+			</tr>
+		}
+	</tbody>
+</table>
+<NavLink class="btn btn-primary" href="/admin/DsAdmins/create">Create</NavLink>
+@code {
+	public IStoreRepository Repository => Service;
+	public IEnumerable<Admin> AdminData { get; set; } = Enumerable.Empty<Admin>();
+	protected async override Task OnInitializedAsync()
+	{
+		await UpdateData();
+	}
+	public async Task UpdateData()
+	{
+		AdminData = await Repository.Admins.ToListAsync();
+	}
+	public async Task DeleteAdmin(Admin p)
+	{
+		Repository.DeleteAdmin(p);
+		await UpdateData();
+	}
+	public string GetDetailsUrl(long id) => $"/admin/DsAdmins/details/{id}";
+	public string GetEditUrl(long id) => $"/admin/DsAdmins/edit/{id}";
+}

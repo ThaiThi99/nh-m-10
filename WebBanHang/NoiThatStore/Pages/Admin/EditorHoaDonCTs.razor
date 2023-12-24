@@ -1,0 +1,120 @@
+﻿@page "/admin/HoaDonCTs/edit/{id:long}"
+@page "/admin/HoaDonCTs/create"
+@inherits OwningComponentBase<IStoreRepository>
+<style>
+	div.validation-message {
+		color: rgb(220, 53, 69);
+		font-weight: 500
+	}
+</style>
+<h3 class="bg-@ThemeColor text-white text-center p-1">
+	@TitleText a HoaDonCT
+</h3>
+<EditForm Model="HoaDonCT" OnValidSubmit="SaveHoaDonCT">
+	<DataAnnotationsValidator />
+	@if (HoaDonCT.id.HasValue && HoaDonCT.id.Value != 0)
+	{
+		<div class="form-group">
+			<label>id</label>
+			<input class="form-control" disabled
+				   value="@HoaDonCT.id" />
+		</div>
+	}
+@* 	<div class="form-group">
+		<label>MAHD</label>
+		<ValidationMessage For="@(() => HoaDonCT.MAHD)" />
+		<InputNumber class="form-control" @bind-Value="HoaDonCT.MAHD" />
+	</div> *@
+	<div class="form-group">
+		<label>MAHD</label>
+		<ValidationMessage For="@(() => HoaDonCT.MAHD)" />
+		<select class="form-control" @bind="@HoaDonCT.MAHD">
+			@foreach (var HoaDon in HoaDonData)
+			{
+				<option value="@HoaDon.MAHD">@HoaDon.MAHD</option>
+			}
+		</select>
+	</div>
+	@* ... adding element *@
+</EditForm>
+<EditForm Model="HoaDonCT" OnValidSubmit="SaveHoaDonCT">
+	<DataAnnotationsValidator />
+	@* <div class="form-group">
+		<label>MASP</label>
+		<ValidationMessage For="@(() => HoaDonCT.MASP)" />
+		<InputNumber class="form-control"
+		@bind-Value="HoaDonCT.MASP" />
+	</div> *@
+	<div class="form-group">
+		<label>Ten San Pham</label>
+		<ValidationMessage For="@(() => HoaDonCT.MASP)" />
+		<select class="form-control" @bind="@HoaDonCT.MASP">
+			@foreach (var SanPham in SanPhamData)
+			{
+				<option value="@SanPham.MASP">@SanPham.TENSP</option>
+			}
+		</select>
+	</div>
+	<div class="form-group">
+		<label>SL</label>
+		<ValidationMessage For="@(() => HoaDonCT.SL)" />
+		<InputNumber class="form-control" @bind-Value="HoaDonCT.SL" />
+	</div>
+	<div class="form-group">
+		<label>DONGIA</label>
+		<ValidationMessage For="@(() => HoaDonCT.DONGIA)" />
+		<InputNumber class="form-control" @bind-Value="HoaDonCT.DONGIA" />
+	</div>
+	<div class="mt-2">
+		<button type="submit" class="btn btn-@ThemeColor">Save</button>
+		<NavLink class="btn btn-secondary" href="/admin/HoaDonCTs">
+			Cancel
+		</NavLink>
+	</div>
+</EditForm>
+@code {
+	public IStoreRepository Repository => Service;
+	public IEnumerable<HoaDon> HoaDonData { get; set; } = Enumerable.Empty<HoaDon>();
+	protected async override Task OnInitializedAsync()
+	{
+		await UpdateData();
+		await UpdateData2();
+	}
+	public async Task UpdateData()
+	{
+		HoaDonData = await Repository.HoaDons.ToListAsync();
+	}
+
+	public IEnumerable<SanPham> SanPhamData { get; set; } = Enumerable.Empty<SanPham>();
+
+	public async Task UpdateData2()
+	{
+		SanPhamData = await Repository.SanPhams.ToListAsync();
+	}
+	[Inject]
+	public NavigationManager? NavManager { get; set; }
+	[Parameter]
+	public long Id { get; set; } = 0;
+	public HoaDonCT HoaDonCT { get; set; } = new HoaDonCT();
+	protected override void OnParametersSet()
+	{
+		if (Id != null)
+		{
+			HoaDonCT = Repository.HoaDonCTs.FirstOrDefault(p => p.id == Id) ?? new();
+		}
+	}
+	public void SaveHoaDonCT()
+	{
+		if (Id == 0)
+		{
+			Repository.CreateHoaDonCT(HoaDonCT);
+		}
+		else
+		{
+			Repository.SaveHoaDonCT(HoaDonCT);
+		}
+		NavManager?.NavigateTo("/admin/HoaDonCTs");
+	}
+	public string ThemeColor => Id == 0 ? "primary" : "warning";
+	public string TitleText => Id == 0 ? "Create" : "Edit";
+}

@@ -1,0 +1,66 @@
+﻿@page "/admin/NhaCungCaps"
+@inherits OwningComponentBase<IStoreRepository>
+<table class="table table-sm table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>NCC_ID</th>
+			<th>TEN</th>
+			<th>DIACHI</th>
+			<th>SDT</th>
+			<th>EMAIL</th>
+			<td />
+		</tr>
+	</thead>
+	<tbody>
+		@if (NhaCungCapData?.Count() > 0)
+		{
+			@foreach (NhaCungCap p in NhaCungCapData)
+			{
+				<tr>
+					<td>@p.NCC_ID</td>
+					<td>@p.TEN</td>
+					<td>@p.DIACHI</td>
+					<td>@p.SDT</td>
+					<td>@p.EMAIL</td>
+					<td>
+						<NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(p.NCC_ID ?? 0)">
+							Details
+						</NavLink>
+						<NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(p.NCC_ID ?? 0)">
+							Edit
+						</NavLink>
+						<button class="btn btn-danger btn-sm" @onclick="@(e => DeleteNhaCungCap(p))">
+							Delete
+						</button>
+					</td>
+				</tr>
+			}
+		}
+		else
+		{
+			<tr>
+				<td colspan="5" class="text-center">No NhaCungCaps</td>
+			</tr>
+		}
+	</tbody>
+</table>
+<NavLink class="btn btn-primary" href="/admin/NhaCungCaps/create">Create</NavLink>
+@code {
+	public IStoreRepository Repository => Service;
+	public IEnumerable<NhaCungCap> NhaCungCapData { get; set; } = Enumerable.Empty<NhaCungCap>();
+	protected async override Task OnInitializedAsync()
+	{
+		await UpdateData();
+	}
+	public async Task UpdateData()
+	{
+		NhaCungCapData = await Repository.NhaCungCaps.ToListAsync();
+	}
+	public async Task DeleteNhaCungCap(NhaCungCap p)
+	{
+		Repository.DeleteNhaCungCap(p);
+		await UpdateData();
+	}
+	public string GetDetailsUrl(long id) => $"/admin/NhaCungCaps/details/{id}";
+	public string GetEditUrl(long id) => $"/admin/NhaCungCaps/edit/{id}";
+}

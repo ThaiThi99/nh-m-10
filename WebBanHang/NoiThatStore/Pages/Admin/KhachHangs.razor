@@ -1,0 +1,68 @@
+﻿@page "/admin/KhachHangs"
+@inherits OwningComponentBase<IStoreRepository>
+<table class="table table-sm table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>MAKH_id</th>
+			<th>TEN</th>
+			<th>HOLOT</th>
+			<th>EMAIL</th>
+			<th>SDT</th>
+			<th>GIOITINH</th>
+			<td />
+		</tr>
+	</thead>
+	<tbody>
+		@if (KhachHangData?.Count() > 0)
+		{
+			@foreach (KhachHang p in KhachHangData)
+			{
+				<tr>
+					<td>@p.MAKH_id</td>
+					<td>@p.TEN</td>
+					<td>@p.HOLOT</td>
+					<td>@p.EMAIL</td>
+					<td>@p.SDT</td>
+					<td>@p.GIOITINH</td>
+					<td>
+						<NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(p.MAKH_id ?? 0)">
+							Details
+						</NavLink>
+						<NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(p.MAKH_id ?? 0)">
+							Edit
+						</NavLink>
+						<button class="btn btn-danger btn-sm" @onclick="@(e => DeleteKhachHang(p))">
+							Delete
+						</button>
+					</td>
+				</tr>
+			}
+		}
+		else
+		{
+			<tr>
+				<td colspan="5" class="text-center">No KhachHangs</td>
+			</tr>
+		}
+	</tbody>
+</table>
+<NavLink class="btn btn-primary" href="/admin/KhachHangs/create">Create</NavLink>
+@code {
+	public IStoreRepository Repository => Service;
+	public IEnumerable<KhachHang> KhachHangData { get; set; } = Enumerable.Empty<KhachHang>();
+	protected async override Task OnInitializedAsync()
+	{
+		await UpdateData();
+	}
+	public async Task UpdateData()
+	{
+		KhachHangData = await Repository.KhachHangs.ToListAsync();
+	}
+	public async Task DeleteKhachHang(KhachHang p)
+	{
+		Repository.DeleteKhachHang(p);
+		await UpdateData();
+	}
+	public string GetDetailsUrl(long id) => $"/admin/KhachHangs/details/{id}";
+	public string GetEditUrl(long id) => $"/admin/KhachHangs/edit/{id}";
+}

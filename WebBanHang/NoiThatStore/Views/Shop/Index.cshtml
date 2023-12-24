@@ -1,0 +1,28 @@
+﻿
+
+@using NoiThatStoreAPI.Models; 
+
+
+@model ProductsListViewModel
+<div class="text-center m-3">
+    <form asp-action="Index" method="get" class="form-inline">
+        nhập loại sản phẩm <input type="text" placeholder="loại sản phẩm muốn tìm" name="category" /><button >tìm</button>
+    </form>
+</div>
+
+<div class="untree_co-section product-section before-footer-section">
+    <div class="container">
+        <div class="row">
+            @foreach (var p in Model?.SanPhams ?? Enumerable.Empty<SanPham>())
+            {
+            <partial name="ProductSummary" model="p" />
+            }
+        </div>
+    </div>
+</div>
+<div page-model="@Model?.PagingInfo" page-action="Index" page-classes-enabled="true"
+page-class="btn" page-class-normal="btn-outline-dark"
+page-class-selected="btn-primary" page-url-category="@Model?.CurrentCategory!"
+class="btn-group pull-right m-1">
+</div>
+

@@ -1,0 +1,233 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = NoiThatStore
+build_property.RootNamespace = NoiThatStore
+build_property.ProjectDir = D:\hoc tap\backend\WebBanHang\NoiThatStore\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\hoc tap\backend\WebBanHang\NoiThatStore
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/AdminEditor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQWRtaW5FZGl0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/AdminLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQWRtaW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/Details.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/DsAdmins.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRHNBZG1pbnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/Editor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdG9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/EditorHoaDonCTs.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdG9ySG9hRG9uQ1RzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/EditorHoaDons.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdG9ySG9hRG9ucy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/EditorKhachHangs.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdG9yS2hhY2hIYW5ncy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/EditorNhaCungCaps.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdG9yTmhhQ3VuZ0NhcHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/HoaDonCTs.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSG9hRG9uQ1RzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/HoaDons.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSG9hRG9ucy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/KhachHangs.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cS2hhY2hIYW5ncy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/NhaCungCaps.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTmhhQ3VuZ0NhcHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/Orders.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/OrderTable.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJUYWJsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/Routed.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm91dGVkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/SanPhams.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2FuUGhhbXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cX0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/IdentityUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSWRlbnRpdHlVc2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/Completed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcGxldGVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/_CartLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0NhcnRMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Blog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Order/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ2hlY2tvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Service/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Shared/Components/CartSummary/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2FydFN1bW1hcnlcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Shared/Components/NavigationMenu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2aWdhdGlvbk1lbnVcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Shared/ProductSummary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb2R1Y3RTdW1tYXJ5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Shop/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Shop/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/hoc tap/backend/WebBanHang/NoiThatStore/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-111tulglhe

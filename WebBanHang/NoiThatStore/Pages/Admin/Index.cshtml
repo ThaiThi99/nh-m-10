@@ -1,0 +1,29 @@
+﻿@page "/admin"
+@using NoiThatStore.Pages.Admin
+@{
+	Layout = null;
+}
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@using Microsoft.AspNetCore.Http
+@{
+	Layout = null;
+	var username = PageContext.HttpContext.User.Identity.Name;
+	if (username != "admin@gmail.com")
+	{
+		Response.Redirect("/");
+	}
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NOI THAT Admin</title>
+	<link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<base href="/" />
+</head>
+<body>
+	<component type="typeof(Routed)" render-mode="Server" />
+	<script src="/_framework/blazor.server.js"></script>
+</body>
+</html>

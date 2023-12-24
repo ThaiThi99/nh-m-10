@@ -1,0 +1,66 @@
+﻿@page "/admin/HoaDons"
+@inherits OwningComponentBase<IStoreRepository>
+<table class="table table-sm table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>MAHD</th>
+			<th>MAKH_id</th>
+			<th>GIABAN</th>
+			<th>NGAYHD</th>
+			<th>LOAIHD</th>
+			<td />
+		</tr>
+	</thead>
+	<tbody>
+		@if (HoaDonData?.Count() > 0)
+		{
+			@foreach (HoaDon p in HoaDonData)
+			{
+				<tr>
+					<td>@p.MAHD</td>
+					<td>@p.MAKH_id</td>
+					<td>@p.GIABAN</td>
+					<td>@p.NGAYHD</td>
+					<td>@p.LOAIHD</td>
+					<td>
+						<NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(p.MAHD ?? 0)">
+							Details
+						</NavLink>
+						<NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(p.MAHD ?? 0)">
+							Edit
+						</NavLink>
+						<button class="btn btn-danger btn-sm" @onclick="@(e => DeleteHoaDon(p))">
+							Delete
+						</button>
+					</td>
+				</tr>
+			}
+		}
+		else
+		{
+			<tr>
+				<td colspan="5" class="text-center">No HoaDons</td>
+			</tr>
+		}
+	</tbody>
+</table>
+<NavLink class="btn btn-primary" href="/admin/HoaDons/create">Create</NavLink>
+@code {
+	public IStoreRepository Repository => Service;
+	public IEnumerable<HoaDon> HoaDonData { get; set; } = Enumerable.Empty<HoaDon>();
+	protected async override Task OnInitializedAsync()
+	{
+		await UpdateData();
+	}
+	public async Task UpdateData()
+	{
+		HoaDonData = await Repository.HoaDons.ToListAsync();
+	}
+	public async Task DeleteHoaDon(HoaDon p)
+	{
+		Repository.DeleteHoaDon(p);
+		await UpdateData();
+	}
+	public string GetDetailsUrl(long id) => $"/admin/HoaDons/details/{id}";
+	public string GetEditUrl(long id) => $"/admin/HoaDons/edit/{id}";
+}
