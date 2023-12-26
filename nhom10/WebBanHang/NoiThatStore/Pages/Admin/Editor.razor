@@ -1,0 +1,162 @@
+﻿@page "/admin/SanPhams/edit/{id:long}"
+@page "/admin/SanPhams/create"
+@inherits OwningComponentBase<IStoreRepository>
+<style>
+div.validation-message { color: rgb(220, 53, 69); font-weight: 500 }
+</style>
+<h3 class="bg-@ThemeColor text-white text-center p-1">
+@TitleText a SanPham
+</h3>
+<EditForm Model="SanPham" OnValidSubmit="SaveSanPham">
+	<DataAnnotationsValidator />
+	@if (SanPham.MASP.HasValue && SanPham.MASP.Value != 0)
+	{
+		<div class="form-group">
+<label>ID</label>
+<input class="form-control" disabled
+value="@SanPham.MASP" />
+</div>
+}
+<div class="form-group">
+<label>TENSP</label>
+<ValidationMessage For="@(() => SanPham.TENSP)" />
+<InputText class="form-control" @bind-Value="SanPham.TENSP" />
+</div>
+@* ... adding element *@
+</EditForm>
+<EditForm Model="SanPham" OnValidSubmit="SaveSanPham">
+	<DataAnnotationsValidator />
+	<div class="form-group">
+		<label>MoTa</label>
+		<ValidationMessage For="@(() => SanPham.MoTa)" />
+		<InputText class="form-control"
+		@bind-Value="SanPham.MoTa" />
+	</div>
+	<div class="form-group">
+		<label>LOAI</label>
+		<ValidationMessage For="@(() => SanPham.LOAI)" />
+		<InputText class="form-control" @bind-Value="SanPham.LOAI" />
+	</div>
+	<div class="form-group">
+		<label>GiaBan</label>
+		<ValidationMessage For="@(() => SanPham.GiaBan)" />
+		<InputNumber class="form-control" @bind-Value="SanPham.GiaBan" />
+	</div>
+@* 	<div class="form-group">
+		<label>NCC_ID</label>
+		<ValidationMessage For="@(() => SanPham.NCC_ID)" />
+		<InputNumber class="form-control" @bind-Value="SanPham.NCC_ID" />
+	</div> *@
+	<div class="form-group">
+		<label>Ten Nha San Xuat</label>
+		<ValidationMessage For="@(() => SanPham.NCC_ID)" />
+		<select class="form-control" @bind="@SanPham.NCC_ID">
+			@foreach (var nhaCungCap in NhaCungCapData)
+			{
+				<option value="@nhaCungCap.NCC_ID">@nhaCungCap.TEN</option>
+			}
+		</select>
+	</div>
+	<div class="form-group">
+		<label>CHATLIEU</label>
+		<ValidationMessage For="@(() => SanPham.CHATLIEU)" />
+		<InputText class="form-control" @bind-Value="SanPham.CHATLIEU" />
+	</div>
+	@* <div class="form-group">
+		<label>HINHANH</label>
+		<ValidationMessage For="@(() => SanPham.HINHANH)" />
+		<InputText class="form-control" @bind-Value="SanPham.HINHANH" />
+	</div> *@
+	<div class="form-group">
+		<label>HINHANH</label>
+		<ValidationMessage For="@(() => SanPham.HINHANH)" />
+		<InputFile class="form-control" name="file" OnChange="HandleFileSelected"  />
+	</div>
+	<div class="form-group">
+		<label>TONKHO</label>
+		<ValidationMessage For="@(() => SanPham.TONKHO)" />
+		<InputNumber class="form-control" @bind-Value="SanPham.TONKHO" />
+	</div>
+	<div class="mt-2">
+		<button type="submit" class="btn btn-@ThemeColor">Save</button>
+		<NavLink class="btn btn-secondary" href="/admin/SanPhams">
+			Cancel
+		</NavLink>
+	</div>
+</EditForm>
+
+@inject IFileUploadService FileUploadService
+@code {
+	public IStoreRepository Repository => Service;
+	public IEnumerable<NhaCungCap> NhaCungCapData { get; set; } = Enumerable.Empty<NhaCungCap>();
+	protected async override Task OnInitializedAsync()
+	{
+		await UpdateData();
+	}
+	public async Task UpdateData()
+	{
+		NhaCungCapData = await Repository.NhaCungCaps.ToListAsync();
+	}
+	[Inject]
+	public NavigationManager? NavManager { get; set; }
+	[Parameter]
+	public long Id { get; set; } = 0;
+	public SanPham SanPham { get; set; } = new SanPham();
+	protected override void OnParametersSet()
+	{
+		if (Id != null)
+		{
+			SanPham = Repository.SanPhams.FirstOrDefault(p => p.MASP == Id) ?? new();
+		}
+	}
+	public void SaveSanPham()
+	{
+		if (Id == 0)
+		{
+			Repository.CreateSanPham(SanPham);
+		}
+		else
+		{
+			Repository.SaveSanPham(SanPham);
+		}
+		NavManager?.NavigateTo("/admin/SanPhams");
+	}
+	public string ThemeColor => Id == 0 ? "primary" : "warning";
+	public string TitleText => Id == 0 ? "Create" : "Edit";
+
+	
+
+	// private async Task HandleFileSelected(InputFileChangeEventArgs e)
+
+	// public async Task HandleFileSelected(IFormFile file)
+	// {
+		
+	// 	IFileUploadService.UploadFileAsync(file);
+	// 	SanPham.HINHANH = file.FileName;
+	// }
+
+	public async Task HandleFileSelected(InputFileChangeEventArgs e)
+	{
+		var file = e.File;
+		if (file != null)
+		{
+			using (var memoryStream = new MemoryStream())
+			{
+				await file.OpenReadStream().CopyToAsync(memoryStream);
+				var fileName = file.Name;
+				var contentType = file.ContentType;
+				var formFile = new FormFile(memoryStream, 0, memoryStream.Length, fileName, fileName);
+
+				await FileUploadService.UploadFileAsync(formFile);
+				SanPham.HINHANH = file.Name;
+			}
+		}
+	}
+
+	// var file = e.File;
+
+	// if (file != null)
+	// {
+	// 	SanPham.HINHANH = file.Name;
+		// }
+}

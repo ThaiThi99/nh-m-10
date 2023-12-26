@@ -1,0 +1,698 @@
+/****** Object:  User [NoiThatStore]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE USER [NoiThatStore] FOR LOGIN [NoiThatStore] WITH DEFAULT_SCHEMA=[dbo]
+GO
+ALTER ROLE [db_owner] ADD MEMBER [NoiThatStore]
+GO
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__EFMigrationsHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Admin]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Admin](
+	[ADMINID] [bigint] IDENTITY(1,1) NOT NULL,
+	[TEN_TK] [nvarchar](100) NOT NULL,
+	[PASS] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_Admin] PRIMARY KEY CLUSTERED 
+(
+	[ADMINID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetRoleClaims](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[RoleId] [nvarchar](450) NOT NULL,
+	[ClaimType] [nvarchar](max) NULL,
+	[ClaimValue] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetRoles](
+	[Id] [nvarchar](450) NOT NULL,
+	[Name] [nvarchar](256) NULL,
+	[NormalizedName] [nvarchar](256) NULL,
+	[ConcurrencyStamp] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetRoles] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserClaims](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [nvarchar](450) NOT NULL,
+	[ClaimType] [nvarchar](max) NULL,
+	[ClaimValue] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserLogins](
+	[LoginProvider] [nvarchar](450) NOT NULL,
+	[ProviderKey] [nvarchar](450) NOT NULL,
+	[ProviderDisplayName] [nvarchar](max) NULL,
+	[UserId] [nvarchar](450) NOT NULL,
+ CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY CLUSTERED 
+(
+	[LoginProvider] ASC,
+	[ProviderKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserRoles](
+	[UserId] [nvarchar](450) NOT NULL,
+	[RoleId] [nvarchar](450) NOT NULL,
+ CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC,
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUsers](
+	[Id] [nvarchar](450) NOT NULL,
+	[UserName] [nvarchar](256) NULL,
+	[NormalizedUserName] [nvarchar](256) NULL,
+	[Email] [nvarchar](256) NULL,
+	[NormalizedEmail] [nvarchar](256) NULL,
+	[EmailConfirmed] [bit] NOT NULL,
+	[PasswordHash] [nvarchar](max) NULL,
+	[SecurityStamp] [nvarchar](max) NULL,
+	[ConcurrencyStamp] [nvarchar](max) NULL,
+	[PhoneNumber] [nvarchar](max) NULL,
+	[PhoneNumberConfirmed] [bit] NOT NULL,
+	[TwoFactorEnabled] [bit] NOT NULL,
+	[LockoutEnd] [datetimeoffset](7) NULL,
+	[LockoutEnabled] [bit] NOT NULL,
+	[AccessFailedCount] [int] NOT NULL,
+ CONSTRAINT [PK_AspNetUsers] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserTokens]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserTokens](
+	[UserId] [nvarchar](450) NOT NULL,
+	[LoginProvider] [nvarchar](450) NOT NULL,
+	[Name] [nvarchar](450) NOT NULL,
+	[Value] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC,
+	[LoginProvider] ASC,
+	[Name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CartLine]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CartLine](
+	[CartLineID] [int] IDENTITY(1,1) NOT NULL,
+	[SanPhamMASP] [bigint] NOT NULL,
+	[Quantity] [int] NOT NULL,
+	[OrderID] [int] NULL,
+ CONSTRAINT [PK_CartLine] PRIMARY KEY CLUSTERED 
+(
+	[CartLineID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HoaDon]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HoaDon](
+	[MAHD] [bigint] IDENTITY(1,1) NOT NULL,
+	[MAKH_id] [bigint] NOT NULL,
+	[GIABAN] [decimal](18, 2) NOT NULL,
+	[NGAYHD] [datetime2](7) NOT NULL,
+	[LOAIHD] [nvarchar](max) NOT NULL,
+	[KhachHangMAKH_id] [bigint] NULL,
+ CONSTRAINT [PK_HoaDon] PRIMARY KEY CLUSTERED 
+(
+	[MAHD] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HoaDonCT]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HoaDonCT](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[MAHD] [bigint] NOT NULL,
+	[MASP] [bigint] NOT NULL,
+	[SL] [int] NOT NULL,
+	[DONGIA] [decimal](18, 2) NOT NULL,
+	[HoaDonMAHD] [bigint] NULL,
+	[SanPhamMASP] [bigint] NULL,
+ CONSTRAINT [PK_HoaDonCT] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[KhachHang]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[KhachHang](
+	[MAKH_id] [bigint] IDENTITY(1,1) NOT NULL,
+	[TEN] [nvarchar](100) NOT NULL,
+	[HOLOT] [nvarchar](100) NOT NULL,
+	[EMAIL] [nvarchar](100) NOT NULL,
+	[SDT] [int] NOT NULL,
+	[GIOITINH] [bit] NOT NULL,
+ CONSTRAINT [PK_KhachHang] PRIMARY KEY CLUSTERED 
+(
+	[MAKH_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NhaCungCap]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NhaCungCap](
+	[NCC_ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[TEN] [nvarchar](100) NOT NULL,
+	[DIACHI] [nvarchar](200) NOT NULL,
+	[SDT] [int] NOT NULL,
+	[EMAIL] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_NhaCungCap] PRIMARY KEY CLUSTERED 
+(
+	[NCC_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Orders]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Orders](
+	[OrderID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NOT NULL,
+	[Line1] [nvarchar](max) NOT NULL,
+	[Line2] [nvarchar](max) NULL,
+	[Line3] [nvarchar](max) NULL,
+	[City] [nvarchar](max) NOT NULL,
+	[State] [nvarchar](max) NOT NULL,
+	[Zip] [nvarchar](max) NULL,
+	[Country] [nvarchar](max) NOT NULL,
+	[GiftWrap] [bit] NOT NULL,
+	[Shipped] [bit] NOT NULL,
+ CONSTRAINT [PK_Orders] PRIMARY KEY CLUSTERED 
+(
+	[OrderID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SanPham]    Script Date: 12/24/2023 5:42:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SanPham](
+	[MASP] [bigint] IDENTITY(1,1) NOT NULL,
+	[NCC_ID] [bigint] NULL,
+	[TENSP] [nvarchar](200) NOT NULL,
+	[LOAI] [nvarchar](100) NOT NULL,
+	[CHATLIEU] [nvarchar](100) NOT NULL,
+	[TONKHO] [int] NOT NULL,
+	[GiaBan] [float] NOT NULL,
+	[HINHANH] [nvarchar](100) NOT NULL,
+	[MoTa] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_SanPham] PRIMARY KEY CLUSTERED 
+(
+	[MASP] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20231216092532_Initial', N'7.0.13')
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20231217074054_Initial', N'7.0.14')
+GO
+SET IDENTITY_INSERT [dbo].[Admin] ON 
+GO
+INSERT [dbo].[Admin] ([ADMINID], [TEN_TK], [PASS]) VALUES (9, N'admin', N'123456')
+GO
+INSERT [dbo].[Admin] ([ADMINID], [TEN_TK], [PASS]) VALUES (10, N'son', N'123')
+GO
+INSERT [dbo].[Admin] ([ADMINID], [TEN_TK], [PASS]) VALUES (11, N'thi', N'456')
+GO
+INSERT [dbo].[Admin] ([ADMINID], [TEN_TK], [PASS]) VALUES (12, N'tohoai', N'789')
+GO
+INSERT [dbo].[Admin] ([ADMINID], [TEN_TK], [PASS]) VALUES (13, N'vanhein', N'785')
+GO
+INSERT [dbo].[Admin] ([ADMINID], [TEN_TK], [PASS]) VALUES (14, N'trauna', N'1230')
+GO
+INSERT [dbo].[Admin] ([ADMINID], [TEN_TK], [PASS]) VALUES (15, N'tuongtu', N'125')
+GO
+INSERT [dbo].[Admin] ([ADMINID], [TEN_TK], [PASS]) VALUES (16, N'zata', N'159')
+GO
+INSERT [dbo].[Admin] ([ADMINID], [TEN_TK], [PASS]) VALUES (17, N'conheo', N'136')
+GO
+INSERT [dbo].[Admin] ([ADMINID], [TEN_TK], [PASS]) VALUES (18, N'filnz', N'789')
+GO
+SET IDENTITY_INSERT [dbo].[Admin] OFF
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'0e6ad5cd-33f8-46c5-b53f-3260e4c6488a', N'mao@gmail.com', N'MAO@GMAIL.COM', N'mao@gmail.com', N'MAO@GMAIL.COM', 1, N'AQAAAAIAAYagAAAAEEfAb+leCGwX3sUuv3aHs2v9Pp9Vkv6sDp1SAN8FLNbK6EP2W/aXnvDzg8/pSmSq5Q==', N'CTDSVM6I2GDDIR3MDUWJWZ2XRMS3GHVP', N'81b79189-8b0a-4a45-8566-4a3685a3e9ba', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'15355941-74d7-442e-a85f-38326c9a9e65', N'thi@gmail.com', N'THI@GMAIL.COM', N'thi@gmail.com', N'THI@GMAIL.COM', 1, N'AQAAAAIAAYagAAAAEGGmpX0fne6GT5rgAQGwh4DLZ/Q3j5Ya21W+PVwQhRv3ZDbOjpk0mF8bolA7ry/1uw==', N'KMIP5MYH42CU4CFRVERHBFQJ2I5JSDXN', N'6fbc435e-a774-45c4-b97b-e92be0fbde48', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'2253cff2-c4e8-4c26-9119-0dfca580f0d5', N'den@gmail.com', N'DEN@GMAIL.COM', N'den@gmail.com', N'DEN@GMAIL.COM', 0, N'AQAAAAIAAYagAAAAECXZUbaBwMsM5D3FY+bPUNrOEoDSPLPMsDqFlycjfnjA1kVi4fc1n11eoKQUl7i/Eg==', N'O4FCNJQJFDYLZHITMGZPCSJ7WQQFHY5U', N'7871c275-65a8-4c72-8741-a885f57277cc', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'2736c261-e2ae-4936-8d71-0fbced4d8f7d', N'dohongson0106@gmail.com', N'DOHONGSON0106@GMAIL.COM', N'dohongson0106@gmail.com', N'DOHONGSON0106@GMAIL.COM', 0, N'AQAAAAIAAYagAAAAEOAPtqYTg+hmR1fO00fC0DPVLFEPz4/d3BUVC4VhKyRBSp5Fe7hnGcdFLynemlROEg==', N'ZF5M35BHZ5GHG3YC63XXY6QL2SBU5U6S', N'1b4ec458-dd57-42c9-ac64-25bbf77c6264', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'4f2b67f6-275d-4ff3-a0f3-2e40108317f3', N'dohongson01@gmail.com', N'DOHONGSON01@GMAIL.COM', N'dohongson01@gmail.com', N'DOHONGSON01@GMAIL.COM', 1, N'AQAAAAIAAYagAAAAEIrk/1lU5PueHvO2gGkA3AB6PwbD5Zx5hhKPkIACHYkNqbWZVrzOdgjRkVP02jI9gA==', N'UR2DA45PRPZ3PQL4GIZZARRLEBBHPKKJ', N'4636fed5-78b1-40e7-b96e-f41eecf3d03c', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'67f94dfc-66b0-4904-b365-17db0036554e', N'xiu@gmail.com', N'XIU@GMAIL.COM', N'xiu@gmail.com', N'XIU@GMAIL.COM', 0, N'AQAAAAIAAYagAAAAEA+qOOWrQ883old1qX0Ule2O4JKxivgEnji+kp7xgz7eWJi+ARfpElBQa3ZzA9SPqA==', N'NFUDFRTVWXVYOZ4RNFVXKTKCDNSZQUUJ', N'a0021ee6-9699-4079-9619-8583ef91da72', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'7da07c04-2c02-4934-b5d5-55664579adf8', N'trang@gmail.com', N'TRANG@GMAIL.COM', N'trang@gmail.com', N'TRANG@GMAIL.COM', 0, N'AQAAAAIAAYagAAAAEM4vgtZ2dwTIWqtj53mpELoWiSX3nPQFOiNZGHqb9pMpCV7MzkicrQ4ZeCYTjIUtpA==', N'6MSV6FVXHGO7VATVW55NC6ALTSW43XE3', N'4dc65f25-f6ad-44e6-b181-d95b955cce90', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'87cb1bf7-be7f-4b78-bb39-0af254da41de', N'11@gmail.com', N'11@GMAIL.COM', N'11@gmail.com', N'11@GMAIL.COM', 0, N'AQAAAAIAAYagAAAAEGw800XkZZausT73ac0cZ8bstGWkpYwKVi0o5ZXb2SWX/dqIRd+Eb0gPJgz1VveVMA==', N'GCXRV3VEQEYVEIJHQ64QVLZFBTZLSXM2', N'aa1a6657-01e8-4bd5-b4c6-d1fb52219161', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'a5480bc0-0ba1-4151-9c3e-95604c669e55', N'tai@gmail.com', N'TAI@GMAIL.COM', N'tai@gmail.com', N'TAI@GMAIL.COM', 0, N'AQAAAAIAAYagAAAAEKwkljP2//mplQHuoDZwAiKdDBf2fOPYUQwOXuLWoJ3KLDcLy2SDqPUvug8UvUbC8g==', N'BSQ2WM2I4JT36JVXCO7CXBF3ZRIBMM5R', N'1d9a2865-980e-40dc-b418-9701cc612a76', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'abc', N'a@gmail.com', N'a@gmail.com', N'a@gmail.com', N'a@gmail.com', 1, N'AQAAAAIAAYagAAAAEPJTUkrBy9iAJH7rySdLNCYMdf/m/JAmyWDFzc2L6BKx7kutKB/5bprR35x1t2wtXA==', N'AQAAAAIAAYagAAAAEPJTUkrBy9iAJH7rySdLNCYMdf/m/JAmyWDFzc2L6BKx7kutKB/5bprR35x1t2wtXA==', N'abc', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'c4df72ac-53c9-4ee9-8b07-b1fa27c2e842', N'abc@gmail.com', N'ABC@GMAIL.COM', N'abc@gmail.com', N'ABC@GMAIL.COM', 1, N'AQAAAAIAAYagAAAAEKlpAq70winzAoSNdAqa+i2aWmBrswwWFYwYhllmj1qvIq9GIb0Uv+Ox87dOq/YRKQ==', N'VPTPKIQU5POQIIM3MYX3HA5AGEFLKPG3', N'eb4bdfc4-4d24-4ec0-988e-f8f2e1545875', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'cdafa73d-fa67-4a20-a7a7-c19726a21813', N'admin@gmail.com', N'ADMIN@GMAIL.COM', N'admin@gmail.com', N'ADMIN@GMAIL.COM', 1, N'AQAAAAIAAYagAAAAEPJTUkrBy9iAJH7rySdLNCYMdf/m/JAmyWDFzc2L6BKx7kutKB/5bprR35x1t2wtXA==', N'EYJ6YAGVXQRZIYR4A3KBTYD2IDASB7OG', N'822dc2c5-d39c-4f8a-98ca-300fb16535b2', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'f064462e-97e3-4232-a0df-74253f4980af', N'ga@gmail.com', N'GA@GMAIL.COM', N'ga@gmail.com', N'GA@GMAIL.COM', 0, N'AQAAAAIAAYagAAAAEGWluSj+owQ9I9E1pVCvJzl4D9gsJRPVW+Br0NWK71MTvVS/wVlyA+rfud3+VA7Bnw==', N'AULTWHMQEKED4UEM6JIB5LERZTGVZDS3', N'f136bd49-de8d-459a-a07d-13688c8e39fd', NULL, 0, 0, NULL, 1, 0)
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'f546cbb4-fe7b-4c5f-8f18-234c5eead377', N'thiii@gmail.com', N'THIII@GMAIL.COM', N'thiii@gmail.com', N'THIII@GMAIL.COM', 1, N'AQAAAAIAAYagAAAAEMwv5N0cJ9CnBIjIB2ywr2FmItptQBI1+U6wl0VpJFiw5wOk18C1vFIWhRs/tpOflQ==', N'CUHXSMJA7Y7RMBHARWUW5Q5OUGKWV6NR', N'a3698c8c-43af-4890-9dc1-32470b8d8eec', NULL, 0, 0, NULL, 1, 0)
+GO
+SET IDENTITY_INSERT [dbo].[CartLine] ON 
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (29, 21, 1, 13)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (30, 21, 1, 14)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (31, 20, 1, 15)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (32, 26, 1, 15)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (33, 24, 1, 16)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (34, 19, 1, 17)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (35, 23, 1, 18)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (36, 19, 1, 18)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (37, 17, 1, 18)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (38, 23, 1, 19)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (39, 28, 1, 19)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (40, 27, 1, 19)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (41, 23, 1, 20)
+GO
+INSERT [dbo].[CartLine] ([CartLineID], [SanPhamMASP], [Quantity], [OrderID]) VALUES (42, 23, 1, 21)
+GO
+SET IDENTITY_INSERT [dbo].[CartLine] OFF
+GO
+SET IDENTITY_INSERT [dbo].[HoaDon] ON 
+GO
+INSERT [dbo].[HoaDon] ([MAHD], [MAKH_id], [GIABAN], [NGAYHD], [LOAIHD], [KhachHangMAKH_id]) VALUES (10, 7, CAST(1000.00 AS Decimal(18, 2)), CAST(N'2023-12-24T17:12:39.8615597' AS DateTime2), N'Online', NULL)
+GO
+INSERT [dbo].[HoaDon] ([MAHD], [MAKH_id], [GIABAN], [NGAYHD], [LOAIHD], [KhachHangMAKH_id]) VALUES (11, 7, CAST(116000.00 AS Decimal(18, 2)), CAST(N'2023-12-24T17:13:45.3471965' AS DateTime2), N'Online', NULL)
+GO
+INSERT [dbo].[HoaDon] ([MAHD], [MAKH_id], [GIABAN], [NGAYHD], [LOAIHD], [KhachHangMAKH_id]) VALUES (12, 7, CAST(100000.00 AS Decimal(18, 2)), CAST(N'2023-12-24T17:14:34.9848134' AS DateTime2), N'Online', NULL)
+GO
+INSERT [dbo].[HoaDon] ([MAHD], [MAKH_id], [GIABAN], [NGAYHD], [LOAIHD], [KhachHangMAKH_id]) VALUES (13, 7, CAST(3500.00 AS Decimal(18, 2)), CAST(N'2023-12-24T17:15:09.6442990' AS DateTime2), N'Online', NULL)
+GO
+INSERT [dbo].[HoaDon] ([MAHD], [MAKH_id], [GIABAN], [NGAYHD], [LOAIHD], [KhachHangMAKH_id]) VALUES (14, 7, CAST(55500.00 AS Decimal(18, 2)), CAST(N'2023-12-24T17:15:49.1214952' AS DateTime2), N'Online', NULL)
+GO
+INSERT [dbo].[HoaDon] ([MAHD], [MAKH_id], [GIABAN], [NGAYHD], [LOAIHD], [KhachHangMAKH_id]) VALUES (15, 7, CAST(130000.00 AS Decimal(18, 2)), CAST(N'2023-12-24T17:17:31.4001709' AS DateTime2), N'Online', NULL)
+GO
+INSERT [dbo].[HoaDon] ([MAHD], [MAKH_id], [GIABAN], [NGAYHD], [LOAIHD], [KhachHangMAKH_id]) VALUES (16, 7, CAST(50000.00 AS Decimal(18, 2)), CAST(N'2023-12-24T17:17:53.3856189' AS DateTime2), N'Online', NULL)
+GO
+INSERT [dbo].[HoaDon] ([MAHD], [MAKH_id], [GIABAN], [NGAYHD], [LOAIHD], [KhachHangMAKH_id]) VALUES (17, 7, CAST(50000.00 AS Decimal(18, 2)), CAST(N'2023-12-24T17:18:22.1624487' AS DateTime2), N'Online', NULL)
+GO
+SET IDENTITY_INSERT [dbo].[HoaDon] OFF
+GO
+SET IDENTITY_INSERT [dbo].[HoaDonCT] ON 
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (16, 10, 21, 1, CAST(1000.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (17, 11, 20, 1, CAST(100000.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (18, 11, 26, 1, CAST(16000.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (19, 12, 24, 1, CAST(100000.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (20, 13, 19, 1, CAST(3500.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (21, 14, 23, 1, CAST(50000.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (22, 14, 19, 1, CAST(3500.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (23, 14, 17, 1, CAST(2000.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (24, 15, 23, 1, CAST(50000.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (25, 15, 28, 1, CAST(60000.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (26, 15, 27, 1, CAST(20000.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (27, 16, 23, 1, CAST(50000.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+INSERT [dbo].[HoaDonCT] ([id], [MAHD], [MASP], [SL], [DONGIA], [HoaDonMAHD], [SanPhamMASP]) VALUES (28, 17, 23, 1, CAST(50000.00 AS Decimal(18, 2)), NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[HoaDonCT] OFF
+GO
+SET IDENTITY_INSERT [dbo].[KhachHang] ON 
+GO
+INSERT [dbo].[KhachHang] ([MAKH_id], [TEN], [HOLOT], [EMAIL], [SDT], [GIOITINH]) VALUES (7, N'tèo', N'nguyễn văn ', N'teo@gmail.com', 126468465, 1)
+GO
+INSERT [dbo].[KhachHang] ([MAKH_id], [TEN], [HOLOT], [EMAIL], [SDT], [GIOITINH]) VALUES (8, N'hữu', N'tố', N'huuto@gmail.com', 324651214, 0)
+GO
+INSERT [dbo].[KhachHang] ([MAKH_id], [TEN], [HOLOT], [EMAIL], [SDT], [GIOITINH]) VALUES (9, N'thành', N'trấn', N'thanhgiatran@gmail.com', 1324641548, 0)
+GO
+INSERT [dbo].[KhachHang] ([MAKH_id], [TEN], [HOLOT], [EMAIL], [SDT], [GIOITINH]) VALUES (10, N'hương', N'văn mai', N'huongmaivan@gmail.com', 1324645615, 0)
+GO
+INSERT [dbo].[KhachHang] ([MAKH_id], [TEN], [HOLOT], [EMAIL], [SDT], [GIOITINH]) VALUES (11, N'trãi', N'nguyễn', N'trainguyen@gmail.com', 123467465, 0)
+GO
+INSERT [dbo].[KhachHang] ([MAKH_id], [TEN], [HOLOT], [EMAIL], [SDT], [GIOITINH]) VALUES (12, N'hoài', N'tô', N'tohoai@gmail.com', 134564564, 1)
+GO
+INSERT [dbo].[KhachHang] ([MAKH_id], [TEN], [HOLOT], [EMAIL], [SDT], [GIOITINH]) VALUES (13, N'bạch', N'lý', N'lybach@gmail.com', 2365987, 0)
+GO
+INSERT [dbo].[KhachHang] ([MAKH_id], [TEN], [HOLOT], [EMAIL], [SDT], [GIOITINH]) VALUES (14, N'thông', N'lý', N'thongly@gmail.com', 123464135, 1)
+GO
+INSERT [dbo].[KhachHang] ([MAKH_id], [TEN], [HOLOT], [EMAIL], [SDT], [GIOITINH]) VALUES (15, N'sanh', N'thạch', N'sanhthach@gmail.com', 12346654, 0)
+GO
+INSERT [dbo].[KhachHang] ([MAKH_id], [TEN], [HOLOT], [EMAIL], [SDT], [GIOITINH]) VALUES (16, N'hương', N'hồ xuân', N'huongho@gmail.com', 1324676456, 0)
+GO
+SET IDENTITY_INSERT [dbo].[KhachHang] OFF
+GO
+SET IDENTITY_INSERT [dbo].[NhaCungCap] ON 
+GO
+INSERT [dbo].[NhaCungCap] ([NCC_ID], [TEN], [DIACHI], [SDT], [EMAIL]) VALUES (7, N'xưởng gỗ Thi Từng Trải', N'22/2 không lối thoát - hòa bình', 366222222, N'maomaodz@gmail.com')
+GO
+INSERT [dbo].[NhaCungCap] ([NCC_ID], [TEN], [DIACHI], [SDT], [EMAIL]) VALUES (8, N'vanhein', N'22/1 bình nguyên vô tận', 123456789, N'vanhein@gmail.com')
+GO
+INSERT [dbo].[NhaCungCap] ([NCC_ID], [TEN], [DIACHI], [SDT], [EMAIL]) VALUES (9, N'zuka', N'23/2 đường top bình nguyên vô tận', 456789231, N'zuka@gmail.com')
+GO
+INSERT [dbo].[NhaCungCap] ([NCC_ID], [TEN], [DIACHI], [SDT], [EMAIL]) VALUES (10, N'enzo', N'11/45 nguyễn văn trãi', 456723132, N'enzo@gmail.com')
+GO
+INSERT [dbo].[NhaCungCap] ([NCC_ID], [TEN], [DIACHI], [SDT], [EMAIL]) VALUES (11, N'violet', N'123 ad bình nguyên vô tận', 431324641, N'violet@gmail.com')
+GO
+INSERT [dbo].[NhaCungCap] ([NCC_ID], [TEN], [DIACHI], [SDT], [EMAIL]) VALUES (12, N'grak', N'đường sp bình nguyên vô tận', 321566654, N'grak@gmail.com')
+GO
+INSERT [dbo].[NhaCungCap] ([NCC_ID], [TEN], [DIACHI], [SDT], [EMAIL]) VALUES (13, N'vera zubư', N'đường mid bình nguyên vô tận', 146461654, N'vera@gmail.com')
+GO
+INSERT [dbo].[NhaCungCap] ([NCC_ID], [TEN], [DIACHI], [SDT], [EMAIL]) VALUES (14, N'yue', N'best pháp sư', 1234654646, N'yue@gmail.com')
+GO
+INSERT [dbo].[NhaCungCap] ([NCC_ID], [TEN], [DIACHI], [SDT], [EMAIL]) VALUES (15, N'toro trâu bò', N'đồng nội', 1346879545, N'toro@gmail.com')
+GO
+INSERT [dbo].[NhaCungCap] ([NCC_ID], [TEN], [DIACHI], [SDT], [EMAIL]) VALUES (16, N'yasuo', N'top 1 thế giới đường mid', 123464846, N'yasuo@gmail.com')
+GO
+SET IDENTITY_INSERT [dbo].[NhaCungCap] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Orders] ON 
+GO
+INSERT [dbo].[Orders] ([OrderID], [Name], [Line1], [Line2], [Line3], [City], [State], [Zip], [Country], [GiftWrap], [Shipped]) VALUES (13, N'joe', N'1', N'JAJF', NULL, N'JOAFSDJ', N'a', N'226656', N'mianma', 0, 0)
+GO
+INSERT [dbo].[Orders] ([OrderID], [Name], [Line1], [Line2], [Line3], [City], [State], [Zip], [Country], [GiftWrap], [Shipped]) VALUES (14, N'joe', N'1', NULL, NULL, N'nkfaslmk', N'a', N'226656', N'mianma', 0, 0)
+GO
+INSERT [dbo].[Orders] ([OrderID], [Name], [Line1], [Line2], [Line3], [City], [State], [Zip], [Country], [GiftWrap], [Shipped]) VALUES (15, N'Admin', N'xcvzxv', N'JAJF', NULL, N'nkfaslmk', N'b', N'226656', N'mianma', 0, 0)
+GO
+INSERT [dbo].[Orders] ([OrderID], [Name], [Line1], [Line2], [Line3], [City], [State], [Zip], [Country], [GiftWrap], [Shipped]) VALUES (16, N'Dohongson', N'1', NULL, NULL, N'12', N'a', N'226656', N'ẠOA', 0, 0)
+GO
+INSERT [dbo].[Orders] ([OrderID], [Name], [Line1], [Line2], [Line3], [City], [State], [Zip], [Country], [GiftWrap], [Shipped]) VALUES (17, N'vlcm', N'xcvzxv', NULL, N'knk', N'JOAFSDJ', N'1', N'lk', N'mianma', 0, 0)
+GO
+INSERT [dbo].[Orders] ([OrderID], [Name], [Line1], [Line2], [Line3], [City], [State], [Zip], [Country], [GiftWrap], [Shipped]) VALUES (18, N'Admin', N'a', NULL, NULL, N'nkfaslmk', N'1', N'21', N'mianma', 0, 0)
+GO
+INSERT [dbo].[Orders] ([OrderID], [Name], [Line1], [Line2], [Line3], [City], [State], [Zip], [Country], [GiftWrap], [Shipped]) VALUES (19, N'a', N'xcvzxv', NULL, NULL, N'a', N'JFASODJL', N'21', N'ẠOA', 0, 0)
+GO
+INSERT [dbo].[Orders] ([OrderID], [Name], [Line1], [Line2], [Line3], [City], [State], [Zip], [Country], [GiftWrap], [Shipped]) VALUES (20, N'Dohongson', N'1', N'JAJF', N'23ew', N'JOAFSDJ', N'JFASODJL', N'asf1', N'12', 0, 0)
+GO
+INSERT [dbo].[Orders] ([OrderID], [Name], [Line1], [Line2], [Line3], [City], [State], [Zip], [Country], [GiftWrap], [Shipped]) VALUES (21, N'jgj', N'xcvzxv', NULL, NULL, N'nkfaslmk', N'12', N'asf1', N'a', 0, 0)
+GO
+SET IDENTITY_INSERT [dbo].[Orders] OFF
+GO
+SET IDENTITY_INSERT [dbo].[SanPham] ON 
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (17, NULL, N'ghế 1 gối', N'ghế', N'vải, gỗ', 50, 2000, N'ge1.png', N'Ghế 1 gối là một loại ghế có kết cấu đơn giản với một gối đính kèm. Nó thường nhẹ nhàng, thoải mái và tiện lợi để sử dụng trong không gian nhỏ. Ghế 1 gối thích hợp cho việc đọc sách, xem phim hoặc thư giãn.')
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (18, 13, N'ghế lười', N'ghế', N'gỗ chất lượng cao', 40, 1000, N'ge2.png', N'Ghế lười là một loại ghế lớn, đệm dày và có tựa lưng cao. Nó thiết kế để mang lại sự thoải mái tuyệt đối và thư giãn. Ghế lười thường có khung vững chắc và bề mặt bọc nỉ, da hoặc vải. Nó là lựa chọn lý tưởng để ngồi, nghỉ ngơi hoặc xem TV.')
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (19, 11, N'ghế gỗ cao cấp', N'ghế', N'gỗ đỏ cao cấp', 10, 3500, N'ge3.png', N'Ghế gỗ cao cấp là một loại ghế được làm từ gỗ chất lượng cao và có thiết kế tinh tế. Nó có thể có các chi tiết hoạt họa độc đáo, hoặc được chế tác thủ công tỉ mỉ. Ghế gỗ cao cấp thường có độ bền cao, mang lại sự sang trọng và đẳng cấp cho không gian nội thất. Nó thường được sử dụng trong phòng khách, phòng ăn hoặc không gian làm việc cao cấp.')
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (20, 8, N'ghế quý s tộc', N'ghế', N'nhựa ve chai', 1, 100000, N'ge5.jpg', N'Ghế quý tộc là một loại ghế được thiết kế đặc biệt để tạo ra sự sang trọng và đẳng cấp. Được làm bằng các vật liệu cao cấp như gỗ quý, da, vải lụa và có thể có các chi tiết hoạt họa phức tạp. Ghế quý tộc thường có kiểu dáng tinh xảo, với tỷ lệ và cấu trúc hài hòa. Nó thường được sử dụng trong các không gian sang trọng như phòng khách của các cung điện, khách sạn cao cấp hoặc căn hộ thượng lưu.')
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (21, NULL, N'giường sương súng', N'giường', N'gỗ loại 1', 10, 1000, N'gi1.jpg', N'Giường nằm là một loại giường được thiết kế để nằm ngửa hoặc nằm nghiêng. Nó thường có một chiều dài đủ dài để người nằm thẳng và đệm êm ái. Giường nằm thích hợp cho việc nghỉ ngơi, đọc sách hoặc thư giãn trong không gian riêng tư.')
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (22, 9, N'giường sofa', N'giường', N'bông gòn', 25, 1500, N'gi2.jpg', N'Giường sofa là một loại giường đa năng có thể được sử dụng như một ghế sofa trong ngày và biến thành một giường để ngủ vào ban đêm. Nó thường có khung gỗ hoặc kim loại, và được trang bị đệm êm ái và một cơ chế gập gọn hoặc kéo ra để tạo thành không gian ngủ. Giường sofa là lựa chọn thông minh cho không gian sống nhỏ hẹp hoặc khi có khách đến qua đêm.')
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (23, 12, N'giường hoàng gia', N'giường', N'da kì đà', 10, 50000, N'gi3.jpg', N'Giường hoàng gia là một loại giường được thiết kế với phong cách và kiểu dáng sang trọng, đẳng cấp như trong các cung điện hoàng gia. Nó thường có kích thước lớn, được làm bằng các vật liệu cao cấp như gỗ quý, da hoặc vải lụa. Giường hoàng gia có thể có các chi tiết hoạt họa phức tạp và tỷ lệ hài hòa, tạo nên một điểm nhấn trang trọng cho không gian ngủ. Nó thường được sử dụng trong các căn phòng cao cấp và mang lại cảm giác sang trọng và hoàng gia.')
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (24, NULL, N'giường phòng the', N'giường', N'da cừu', 2, 100000, N'gi4.jpg', N'Giường phòng thể là một loại giường được thiết kế đặc biệt cho mục đích sử dụng trong phòng ngủ, hay cụ thể hơn, trong phòng ngủ của một cặp đôi. Nó thường có kích thước lớn hơn so với giường đơn và được trang bị đệm êm ái và bề mặt thoải mái để tạo nên không gian thích hợp cho hoạt động tình dục và tận hưởng thời gian cùng nhau. Giường phòng thể có thể có các chi tiết độc đáo và thiết kế tinh tế, tạo nên không gian lãng mạn và riêng tư cho cặp đôi.')
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (25, 15, N'tủ tam giác', N'tủ', N'gỗ thượng hạng', 5, 15000, N'tu1.jpg', N'Tủ tam giác là một thuật ngữ không phổ biến và không có mô tả rõ ràng trong ngữ cảnh nội thất. Tôi không thể cung cấp một mô tả chính xác cho tủ tam giác mà không có thông tin cụ thể về nó. Nếu bạn có thêm chi tiết hoặc mô tả cụ thể hơn về tủ tam giác, tôi sẽ cố gắng giúp bạn.')
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (26, NULL, N'tủ để quần áo', N'tủ', N'gỗ đỏ', 3, 16000, N'tu2.jpg', N'Tủ tam giác là một thuật ngữ không phổ biến và không có mô tả rõ ràng trong ngữ cảnh nội thất. Tôi không thể cung cấp một mô tả chính xác cho tủ tam giác mà không có thông tin cụ thể về nó. Nếu bạn có thêm chi tiết hoặc mô tả cụ thể hơn về tủ tam giác, tôi sẽ cố gắng giúp bạn.')
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (27, 9, N'tủ inok', N'tủ', N'inok anh sơn', 6, 20000, N'tu3.jpg', N'Tủ tam giác là một thuật ngữ không phổ biến và không có mô tả rõ ràng trong ngữ cảnh nội thất. Tôi không thể cung cấp một mô tả chính xác cho tủ tam giác mà không có thông tin cụ thể về nó. Nếu bạn có thêm chi tiết hoặc mô tả cụ thể hơn về tủ tam giác, tôi sẽ cố gắng giúp bạn.')
+GO
+INSERT [dbo].[SanPham] ([MASP], [NCC_ID], [TENSP], [LOAI], [CHATLIEU], [TONKHO], [GiaBan], [HINHANH], [MoTa]) VALUES (28, NULL, N'tủ gỗ Nhật Bản', N'tủ', N'gỗ cây sồi lâu năm', 1, 60000, N'tu4.jpg', N'Tủ tam giác là một thuật ngữ không phổ biến và không có mô tả rõ ràng trong ngữ cảnh nội thất. Tôi không thể cung cấp một mô tả chính xác cho tủ tam giác mà không có thông tin cụ thể về nó. Nếu bạn có thêm chi tiết hoặc mô tả cụ thể hơn về tủ tam giác, tôi sẽ cố gắng giúp bạn.')
+GO
+SET IDENTITY_INSERT [dbo].[SanPham] OFF
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [IX_Admin_TEN_TK]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE UNIQUE NONCLUSTERED INDEX [IX_Admin_TEN_TK] ON [dbo].[Admin]
+(
+	[TEN_TK] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [IX_AspNetRoleClaims_RoleId]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE NONCLUSTERED INDEX [IX_AspNetRoleClaims_RoleId] ON [dbo].[AspNetRoleClaims]
+(
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [RoleNameIndex]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE UNIQUE NONCLUSTERED INDEX [RoleNameIndex] ON [dbo].[AspNetRoles]
+(
+	[NormalizedName] ASC
+)
+WHERE ([NormalizedName] IS NOT NULL)
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [IX_AspNetUserClaims_UserId]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE NONCLUSTERED INDEX [IX_AspNetUserClaims_UserId] ON [dbo].[AspNetUserClaims]
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [IX_AspNetUserLogins_UserId]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE NONCLUSTERED INDEX [IX_AspNetUserLogins_UserId] ON [dbo].[AspNetUserLogins]
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [IX_AspNetUserRoles_RoleId]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE NONCLUSTERED INDEX [IX_AspNetUserRoles_RoleId] ON [dbo].[AspNetUserRoles]
+(
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [EmailIndex]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE NONCLUSTERED INDEX [EmailIndex] ON [dbo].[AspNetUsers]
+(
+	[NormalizedEmail] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [UserNameIndex]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE UNIQUE NONCLUSTERED INDEX [UserNameIndex] ON [dbo].[AspNetUsers]
+(
+	[NormalizedUserName] ASC
+)
+WHERE ([NormalizedUserName] IS NOT NULL)
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_CartLine_OrderID]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE NONCLUSTERED INDEX [IX_CartLine_OrderID] ON [dbo].[CartLine]
+(
+	[OrderID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_CartLine_SanPhamMASP]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE NONCLUSTERED INDEX [IX_CartLine_SanPhamMASP] ON [dbo].[CartLine]
+(
+	[SanPhamMASP] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_HoaDon_KhachHangMAKH_id]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE NONCLUSTERED INDEX [IX_HoaDon_KhachHangMAKH_id] ON [dbo].[HoaDon]
+(
+	[KhachHangMAKH_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_HoaDonCT_HoaDonMAHD]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE NONCLUSTERED INDEX [IX_HoaDonCT_HoaDonMAHD] ON [dbo].[HoaDonCT]
+(
+	[HoaDonMAHD] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_HoaDonCT_SanPhamMASP]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE NONCLUSTERED INDEX [IX_HoaDonCT_SanPhamMASP] ON [dbo].[HoaDonCT]
+(
+	[SanPhamMASP] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_SanPham_NCC_ID]    Script Date: 12/24/2023 5:42:39 PM ******/
+CREATE NONCLUSTERED INDEX [IX_SanPham_NCC_ID] ON [dbo].[SanPham]
+(
+	[NCC_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[AspNetRoleClaims]  WITH CHECK ADD  CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY([RoleId])
+REFERENCES [dbo].[AspNetRoles] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetRoleClaims] CHECK CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId]
+GO
+ALTER TABLE [dbo].[AspNetUserClaims]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserClaims] CHECK CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId]
+GO
+ALTER TABLE [dbo].[AspNetUserLogins]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserLogins] CHECK CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId]
+GO
+ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY([RoleId])
+REFERENCES [dbo].[AspNetRoles] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId]
+GO
+ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId]
+GO
+ALTER TABLE [dbo].[AspNetUserTokens]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserTokens] CHECK CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId]
+GO
+ALTER TABLE [dbo].[CartLine]  WITH CHECK ADD  CONSTRAINT [FK_CartLine_Orders_OrderID] FOREIGN KEY([OrderID])
+REFERENCES [dbo].[Orders] ([OrderID])
+GO
+ALTER TABLE [dbo].[CartLine] CHECK CONSTRAINT [FK_CartLine_Orders_OrderID]
+GO
+ALTER TABLE [dbo].[CartLine]  WITH CHECK ADD  CONSTRAINT [FK_CartLine_SanPham_SanPhamMASP] FOREIGN KEY([SanPhamMASP])
+REFERENCES [dbo].[SanPham] ([MASP])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[CartLine] CHECK CONSTRAINT [FK_CartLine_SanPham_SanPhamMASP]
+GO
+ALTER TABLE [dbo].[HoaDon]  WITH CHECK ADD  CONSTRAINT [FK_HoaDon_KhachHang_KhachHangMAKH_id] FOREIGN KEY([KhachHangMAKH_id])
+REFERENCES [dbo].[KhachHang] ([MAKH_id])
+GO
+ALTER TABLE [dbo].[HoaDon] CHECK CONSTRAINT [FK_HoaDon_KhachHang_KhachHangMAKH_id]
+GO
+ALTER TABLE [dbo].[HoaDonCT]  WITH CHECK ADD  CONSTRAINT [FK_HoaDonCT_HoaDon_HoaDonMAHD] FOREIGN KEY([HoaDonMAHD])
+REFERENCES [dbo].[HoaDon] ([MAHD])
+GO
+ALTER TABLE [dbo].[HoaDonCT] CHECK CONSTRAINT [FK_HoaDonCT_HoaDon_HoaDonMAHD]
+GO
+ALTER TABLE [dbo].[HoaDonCT]  WITH CHECK ADD  CONSTRAINT [FK_HoaDonCT_SanPham_SanPhamMASP] FOREIGN KEY([SanPhamMASP])
+REFERENCES [dbo].[SanPham] ([MASP])
+GO
+ALTER TABLE [dbo].[HoaDonCT] CHECK CONSTRAINT [FK_HoaDonCT_SanPham_SanPhamMASP]
+GO
+ALTER TABLE [dbo].[SanPham]  WITH CHECK ADD  CONSTRAINT [FK_SanPham_NhaCungCap_NCC_ID] FOREIGN KEY([NCC_ID])
+REFERENCES [dbo].[NhaCungCap] ([NCC_ID])
+GO
+ALTER TABLE [dbo].[SanPham] CHECK CONSTRAINT [FK_SanPham_NhaCungCap_NCC_ID]
+

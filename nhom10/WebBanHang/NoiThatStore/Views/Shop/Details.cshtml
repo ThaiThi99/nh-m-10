@@ -1,0 +1,32 @@
+﻿@using NoiThatStoreAPI.Models
+@using NoiThatStore.Pages
+@model SanPham
+
+
+
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="/images/@Model.HINHANH"
+            class="img-fluid rounded-start">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">
+                    @Model.TENSP <br>
+                    <strong class="product-price">$ @Model.GiaBan</strong>
+                    <p class="card-text">@Model.MoTa</p>
+                    <form id="@Model.MASP" asp-page="/Cart" method="post">
+                        <input type="hidden" asp-for="MASP" />
+                        <input type="hidden" name="returnUrl"
+                               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                        <button type="submit">
+                            Add to Cart
+                        </button>
+
+                    </form>
+                   @*  <p class="card-text"><small class="text-muted">Add to Cart</small></p> *@
+            </div>
+        </div>
+    </div>
+</div>

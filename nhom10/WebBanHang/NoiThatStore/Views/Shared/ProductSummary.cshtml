@@ -1,0 +1,24 @@
+﻿@using NoiThatStoreAPI.Models
+@using NoiThatStore.Pages
+@model SanPham
+
+<div class="col-12 col-md-4 col-lg-3 mb-5 justify-content-center">
+	<a class="product-item" href="#" >
+        <img style="height:216px" src="images/@Model.HINHANH" class="img-fluid product-thumbnail"  />
+		<h3 class="product-title">@Model.TENSP</h3>
+		<strong class="product-price">@Model.GiaBan.ToString("c")</strong>
+	</a>
+	<form id="@Model.MASP" asp-page="/Cart" method="post">
+		<input type="hidden" asp-for="MASP" />
+		<input type="hidden" name="returnUrl"
+			   value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+		<button class="btn btn-primary" type="submit">
+			Thêm
+		</button>
+		<a class="btn btn-primary" asp-action="Details" asp-controller="Shop" asp-route-MASP="@Model.MASP">Chi tiet</a>
+	</form>
+	
+   
+</div>
+
+

@@ -1,0 +1,98 @@
+﻿@page "/admin/HoaDons/edit/{id:long}"
+@page "/admin/HoaDons/create"
+@inherits OwningComponentBase<IStoreRepository>
+<style>
+	div.validation-message {
+		color: rgb(220, 53, 69);
+		font-weight: 500
+	}
+</style>
+<h3 class="bg-@ThemeColor text-white text-center p-1">
+	@TitleText a HoaDon
+</h3>
+<EditForm Model="HoaDon" OnValidSubmit="SaveHoaDon">
+	<DataAnnotationsValidator />
+	@if (HoaDon.MAHD.HasValue && HoaDon.MAHD.Value != 0)
+	{
+		<div class="form-group">
+			<label>ID</label>
+			<input class="form-control" disabled
+				   value="@HoaDon.MAHD" />
+		</div>
+	}
+	<div class="form-group">
+		<label>LOAIHD</label>
+		<ValidationMessage For="@(() => HoaDon.LOAIHD)" />
+		<InputText class="form-control" @bind-Value="HoaDon.LOAIHD" />
+	</div>
+	@* ... adding element *@
+</EditForm>
+<EditForm Model="HoaDon" OnValidSubmit="SaveHoaDon">
+	<DataAnnotationsValidator />
+
+	<div class="form-group">
+		<label>Ten -- Email Khach Hang</label>
+		<ValidationMessage For="@(() => HoaDon.MAKH_id)" />
+		<select class="form-control" @bind="@HoaDon.MAKH_id">
+			@foreach (var KhachHang in KhachHangData)
+			{
+				<option value="@KhachHang.MAKH_id">ten: @KhachHang.TEN -- email: @KhachHang.EMAIL</option>
+			}
+		</select>
+	</div>
+	<div class="form-group">
+		<label>GIABAN</label>
+		<ValidationMessage For="@(() => HoaDon.GIABAN)" />
+		<InputNumber class="form-control" @bind-Value="HoaDon.GIABAN" />
+	</div>
+	<div class="form-group">
+		<label>NGAYHD</label>
+		<ValidationMessage For="@(() => HoaDon.NGAYHD)" />
+		<InputDate class="form-control" @bind-Value="HoaDon.NGAYHD" />
+	</div>
+	
+	<div class="mt-2">
+		<button type="submit" class="btn btn-@ThemeColor">Save</button>
+		<NavLink class="btn btn-secondary" href="/admin/HoaDons">
+			Cancel
+		</NavLink>
+	</div>
+</EditForm>
+@code {
+	public IStoreRepository Repository => Service;
+	public IEnumerable<KhachHang> KhachHangData { get; set; } = Enumerable.Empty<KhachHang>();
+	protected async override Task OnInitializedAsync()
+	{
+		await UpdateData();
+	}
+	public async Task UpdateData()
+	{
+		KhachHangData = await Repository.KhachHangs.ToListAsync();
+	}
+	[Inject]
+	public NavigationManager? NavManager { get; set; }
+	[Parameter]
+	public long Id { get; set; } = 0;
+	public HoaDon HoaDon { get; set; } = new HoaDon();
+	protected override void OnParametersSet()
+	{
+		if (Id != null)
+		{
+			HoaDon = Repository.HoaDons.FirstOrDefault(p => p.MAHD == Id) ?? new();
+		}
+	}
+	public void SaveHoaDon()
+	{
+		if (Id == 0)
+		{
+			Repository.CreateHoaDon(HoaDon);
+		}
+		else
+		{
+			Repository.SaveHoaDon(HoaDon);
+		}
+		NavManager?.NavigateTo("/admin/HoaDons");
+	}
+	public string ThemeColor => Id == 0 ? "primary" : "warning";
+	public string TitleText => Id == 0 ? "Create" : "Edit";
+}
